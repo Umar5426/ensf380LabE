@@ -103,7 +103,6 @@ public class ToDoList implements IToDoList {
     @Override
     public void addTask(Task task){
         tasks.add(task);
-        saveHistory();
         System.out.println("Task added: " + task.getTitle());
     }
 
@@ -112,7 +111,6 @@ public class ToDoList implements IToDoList {
         Task taskToComplete = findTaskById(id);
         if (taskToComplete != null) {
             taskToComplete.setCompleted(true);
-            saveHistory();
             System.out.println("Task completed: " + taskToComplete.getTitle());
         } else {
             System.out.println("Task with ID " + id + " not found");
@@ -124,7 +122,6 @@ public class ToDoList implements IToDoList {
         Task taskToDelete = findTaskById(id);
         if (taskToDelete != null) {
             tasks.remove(taskToDelete);
-            saveHistory();
             System.out.println("Task deleted: " + taskToDelete.getTitle());
         } else {
             System.out.println("Task with ID " + id + " not found");
@@ -135,7 +132,6 @@ public class ToDoList implements IToDoList {
             if (task.getId().equals(taskId)) {
                 iterator.remove();
                 System.out.println("Task deleted: " + task.getTitle());
-                saveHistory();
                 return;
             }
         }
@@ -147,7 +143,6 @@ public class ToDoList implements IToDoList {
         if (taskToEdit != null) {
             taskToEdit.setTitle(newTitle);
             taskToEdit.setCompleted(isCompleted);
-            saveHistory();
             System.out.println("Task edited: " + taskToEdit.getTitle());
         } else {
             System.out.println("Task with ID " + taskId + " not found");
@@ -157,30 +152,14 @@ public class ToDoList implements IToDoList {
     @Override
     public void undo() {
         if (!history.isEmpty()) {
-            tasks = new ArrayList<>(history.pop());
-            System.out.println("Undo operation performed");
-        } else {
-            System.out.println("Nothing to undo");
+            tasks = history.pop();
         }
     }
 
     @Override
     public List<Task> listTasks(){
         // Return a copy of the task list to prevent direct modification
-        return new ArrayList<>(tasks);
+        return tasks
     }
 
-    private void saveHistory() {
-        List<Task> taskCopy = new ArrayList<>(tasks);
-        history.push(taskCopy);
-    }
-
-    private Task findTaskById(String id) {
-        for (Task task : tasks) {
-            if (task.getId().equals(id)) {
-                return task;
-            }
-        }
-        return null;
-    }
 }
