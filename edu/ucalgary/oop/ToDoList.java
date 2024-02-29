@@ -40,17 +40,17 @@ public class ToDoList implements IToDoList {
 
 
     @Override
-    public void deleteTask(Task task){
+    public void deleteTask(String task){
         tasks.remove(task);
         saveHistory();
         System.out.println("Task deleted: " + task.getTitle());
     }
 
     @Override
-    public void editTask(int taskId, String newTitle, boolean isCompleted) {
+    public void editTask(String taskId, String newTitle, boolean isCompleted) {
         //finding the task using the id
         for (Task task : tasks) {
-            if (Integer.valueOf(task.getId()).equals(taskId)) { //Changing/Editing the task itself
+            if (task.getId().equals(taskId)){ //Changing/Editing the task itself
                 task.setTitle(newTitle);
                 task.setCompleted(isCompleted);
                 System.out.println("Task edited: " + task.getTitle());
