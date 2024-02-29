@@ -166,8 +166,8 @@ public class ToDoList implements IToDoList
                 return task;
             }
         }
+        return null;
     }
-
     @Override
     public List<Task> listTasks(){
         // Return a copy of the task list to prevent direct modification
