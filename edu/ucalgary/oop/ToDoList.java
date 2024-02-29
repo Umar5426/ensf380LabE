@@ -108,6 +108,7 @@ public class ToDoList implements IToDoList {
 
     @Override
     public void completeTask(String id) {
+        history.push(new ArrayList<>(tasks))
         Task taskToComplete = findTaskById(id);
         if (taskToComplete != null) {
             taskToComplete.setCompleted(true);
@@ -119,6 +120,7 @@ public class ToDoList implements IToDoList {
 
     @Override
     public void deleteTask(String id){
+        history.push(new ArrayList<>(tasks));
         Task taskToDelete = findTaskById(id);
         if (taskToDelete != null) {
             tasks.remove(taskToDelete);
@@ -139,6 +141,7 @@ public class ToDoList implements IToDoList {
 
     @Override
     public void editTask(String taskId, String newTitle, boolean isCompleted) {
+        history.push(new ArrayList<>(tasks));
         Task taskToEdit = findTaskById(taskId);
         if (taskToEdit != null) {
             taskToEdit.setTitle(newTitle);
