@@ -91,7 +91,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class ToDoList implements IToDoList {
+public class ToDoList implements IToDoList
+{
     private List<Task> tasks;
     private Stack<List<Task>> history;
 
@@ -159,10 +160,16 @@ public class ToDoList implements IToDoList {
         }
     }
 
+    private Task findTaskById(String id) {
+    for (Task task : tasks) {
+        if (task.getId().equals(id)) {
+            return task;
+        }
+    }
+
     @Override
     public List<Task> listTasks(){
         // Return a copy of the task list to prevent direct modification
         return tasks;
     }
-
 }
