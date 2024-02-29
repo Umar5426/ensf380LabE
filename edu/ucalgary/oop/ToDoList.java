@@ -1,8 +1,5 @@
 package edu.ucalgary.oop;
-import java.util;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ToDoList implements IToDoList {
     private List<Task> tasks;
@@ -48,5 +45,4 @@ public class ToDoList implements IToDoList {
             System.out.println("- " + task.getTitle() + " (Completed: " + task.isCompleted() + ")");
         }
     }
-
 }
