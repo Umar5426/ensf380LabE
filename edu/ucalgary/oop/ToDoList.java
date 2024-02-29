@@ -17,11 +17,27 @@ public class ToDoList implements IToDoList {
     }
 
     @Override
-    public void completeTask(String id){
-        id.setCompleted(true);
-        saveHistory();
-        System.out.println("Task completed: " + id.getTitle());
+    public void completeTask(String id) {
+        // Find the task with the given ID
+        Task taskToComplete = null;
+        for (Task task : tasks) {
+            if (task.getId().equals(id)) {
+                taskToComplete = task;
+                break;
+            }
+        }
+
+        // Check if the task was found
+        if (taskToComplete != null) {
+            // Mark the task as completed
+            taskToComplete.setCompleted(true);
+            saveHistory();
+            System.out.println("Task completed: " + taskToComplete.getTitle());
+        } else {
+            System.out.println("Task with ID " + id + " not found");
+        }
     }
+
 
     @Override
     public void deleteTask(Task task){
