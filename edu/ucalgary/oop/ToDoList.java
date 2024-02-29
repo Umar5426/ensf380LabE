@@ -34,7 +34,7 @@ public class ToDoList implements IToDoList {
     public void editTask(int taskId, String newTitle, boolean isCompleted) {
         //finding the task using the id
         for (Task task : tasks) {
-            if (task.getId().equals(taskId)) { //Changing/Editing the task itself
+            if (Integer.valueOf(task.getId()).equals(taskId)) { //Changing/Editing the task itself
                 task.setTitle(newTitle);
                 task.setCompleted(isCompleted);
                 System.out.println("Task edited: " + task.getTitle());
