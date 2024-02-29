@@ -161,9 +161,10 @@ public class ToDoList implements IToDoList
     }
 
     private Task findTaskById(String id) {
-    for (Task task : tasks) {
-        if (task.getId().equals(id)) {
-            return task;
+        for (Task task : tasks) {
+            if (task.getId().equals(id)) {
+                return task;
+            }
         }
     }
 
