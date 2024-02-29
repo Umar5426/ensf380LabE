@@ -7,12 +7,12 @@ import java.util.List;
 public class ToDoList implements IToDoList {
     private List<Task> tasks;
 
-    public TaskManagerImpl() {
+    public ToDoList() {
         tasks = new ArrayList<>();
     }
 
     @Override
-    public void addTask(Task task) {
+    public void addTask(Task task){
         tasks.add(task);
         System.out.println("Task added: " + task.getTitle());
     }
