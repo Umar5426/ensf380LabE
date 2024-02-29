@@ -126,15 +126,15 @@ public class ToDoList implements IToDoList {
         } else {
             System.out.println("Task with ID " + id + " not found");
         }
-    public void deleteTask(String taskId){
-        for (Iterator<Task> iterator = tasks.iterator(); iterator.hasNext();) {
-            Task task = iterator.next();
-            if (task.getId().equals(taskId)) {
-                iterator.remove();
-                System.out.println("Task deleted: " + task.getTitle());
-                return;
-            }
-        }
+    // public void deleteTask(String taskId){
+    //     for (Iterator<Task> iterator = tasks.iterator(); iterator.hasNext();) {
+    //         Task task = iterator.next();
+    //         if (task.getId().equals(taskId)) {
+    //             iterator.remove();
+    //             System.out.println("Task deleted: " + task.getTitle());
+    //             return;
+    //         }
+    //     }
     }
 
     @Override
@@ -159,7 +159,7 @@ public class ToDoList implements IToDoList {
     @Override
     public List<Task> listTasks(){
         // Return a copy of the task list to prevent direct modification
-        return tasks
+        return tasks;
     }
 
 }
