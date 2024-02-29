@@ -2,7 +2,7 @@ package edu.ucalgary.oop;
 import java.util;
 
 
-public interface ToDoList {
+public interface IToDoList {
     void addTask(Task task);
 
     void completeTask(Task task);
