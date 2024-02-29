@@ -108,7 +108,7 @@ public class ToDoList implements IToDoList {
 
     @Override
     public void completeTask(String id) {
-        history.push(new ArrayList<>(tasks))
+        history.push(new ArrayList<>(tasks));
         Task taskToComplete = findTaskById(id);
         if (taskToComplete != null) {
             taskToComplete.setCompleted(true);
