@@ -103,6 +103,7 @@ public class ToDoList implements IToDoList
 
     @Override
     public void addTask(Task task){
+        history.push(new ArrayList<>(tasks));
         tasks.add(task);
         System.out.println("Task added: " + task.getTitle());
     }
