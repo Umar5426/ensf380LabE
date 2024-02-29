@@ -31,7 +31,7 @@ public class ToDoList implements IToDoList {
     }
 
     @Override
-    public void editTask(String taskId, String newTitle, boolean isCompleted) {
+    public void editTask(int taskId, String newTitle, boolean isCompleted) {
         //finding the task using the id
         for (Task task : tasks) {
             if (task.getId().equals(taskId)) { //Changing/Editing the task itself
