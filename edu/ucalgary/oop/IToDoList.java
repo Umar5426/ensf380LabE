@@ -7,7 +7,7 @@ public interface IToDoList {
 
     void completeTask(String id);
 
-    void deleteTask(String task);
+    void deleteTask(String taskId);
 
     void editTask(String taskId, String newTitle, boolean isCompleted);
 

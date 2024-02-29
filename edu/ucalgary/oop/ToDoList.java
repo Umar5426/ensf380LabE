@@ -40,10 +40,16 @@ public class ToDoList implements IToDoList {
 
 
     @Override
-    public void deleteTask(String task){
-        tasks.remove(task);
-        saveHistory();
-        System.out.println("Task deleted: " + task.getTitle());
+    public void deleteTask(String taskId){
+        for (Iterator<Task> iterator = tasks.iterator(); iterator.hasNext();) {
+            Task task = iterator.next();
+            if (task.getId().equals(taskId)) {
+                iterator.remove();
+                System.out.println("Task deleted: " + task.getTitle());
+                saveHistory();
+                return;
+            }
+        }
     }
 
     @Override
