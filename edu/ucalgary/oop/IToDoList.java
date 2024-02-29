@@ -5,7 +5,7 @@ import java.util.*;
 public interface IToDoList {
     void addTask(Task task);
 
-    void completeTask(Task task);
+    void completeTask(String id);
 
     void deleteTask(Task task);
 
@@ -13,5 +13,5 @@ public interface IToDoList {
 
     void undo();
 
-    void listTasks();
+    List<Task> listTasks();
 }

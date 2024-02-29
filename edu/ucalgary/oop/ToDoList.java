@@ -17,10 +17,10 @@ public class ToDoList implements IToDoList {
     }
 
     @Override
-    public void completeTask(Task task){
-        task.setCompleted(true);
+    public void completeTask(String id){
+        id.setCompleted(true);
         saveHistory();
-        System.out.println("Task completed: " + task.getTitle());
+        System.out.println("Task completed: " + id.getTitle());
     }
 
     @Override
@@ -58,11 +58,8 @@ public class ToDoList implements IToDoList {
     }
 
     @Override
-    public void listTasks(){
-        System.out.println("Tasks:");
-        for (Task task : tasks) {
-            System.out.println("- " + task.getTitle() + " (Completed: " + task.isCompleted() + ")");
-        }
+    public List<Task> listTasks(){
+        return this.tasks; 
     }
 
     private void saveHistory() {
